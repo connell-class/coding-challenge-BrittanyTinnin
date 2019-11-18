@@ -16,6 +16,7 @@ import com.revature.model.GroceryList;
 import com.revature.service.GroceryListRepository;
 
 @RestController
+@CrossOrigin(origins="*")
 public class GroceryListController {
 	Set<GroceryItem> list;
 
