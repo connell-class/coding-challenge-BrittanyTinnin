@@ -37,7 +37,7 @@ public class GroceryItemController {
 //	public @ResponseBody void addItem(@RequestBody GroceryItem item) {
 	public @ResponseBody void addItem(GroceryItem item) {
 //		GroceryItem ngi = new GroceryItem(0, item.getType(), item.getName(), item.getQuantity(), glist);
-		GroceryItem ngi = new GroceryItem(0, "food", "apples", 10, new GroceryList());
+		GroceryItem ngi = new GroceryItem(0, "Electronics", "75in TV", 10, new GroceryList(0, "Christmas List"));
 		
 		gi.save(ngi);
 	}

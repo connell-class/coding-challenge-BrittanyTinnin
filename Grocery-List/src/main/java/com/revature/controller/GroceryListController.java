@@ -47,6 +47,5 @@ public class GroceryListController {
 	@DeleteMapping(value = "grocery-lists")
 	public @ResponseBody void deleteItem(@RequestBody GroceryList gl) {
 		gs.delete(gl);
-		;
 	}
 }

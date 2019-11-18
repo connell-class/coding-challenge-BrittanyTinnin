@@ -1,0 +1,8 @@
+<h3>{{ list.name }}</h3>
+<ul>
+  <li *ngFor="let groceryItem of list.groceryItems">{{groceryItem.name}}
+    <ul>
+      <li>Quantity:{{groceryItem.quantity}}</li>
+    </ul>
+  </li>
+</ul>

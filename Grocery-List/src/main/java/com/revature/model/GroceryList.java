@@ -22,6 +22,8 @@ public class GroceryList {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	private String name;
+
 	@OneToMany(mappedBy = "groceryList", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<GroceryItem> groceryItems = new HashSet<GroceryItem>();
 
@@ -30,9 +32,18 @@ public class GroceryList {
 		// TODO Auto-generated constructor stub
 	}
 
-	public GroceryList(int id) {
+	public GroceryList(int id, String name, Set<GroceryItem> groceryItems) {
 		super();
 		this.id = id;
+		this.name = name;
+		this.groceryItems = groceryItems;
+	}
+	
+
+	public GroceryList(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
 	}
 
 	public int getId() {
@@ -42,9 +53,14 @@ public class GroceryList {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public Set<GroceryItem> getGroceryItems() {
 		return groceryItems;
@@ -58,7 +74,9 @@ public class GroceryList {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((groceryItems == null) ? 0 : groceryItems.hashCode());
 		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -71,14 +89,24 @@ public class GroceryList {
 		if (getClass() != obj.getClass())
 			return false;
 		GroceryList other = (GroceryList) obj;
+		if (groceryItems == null) {
+			if (other.groceryItems != null)
+				return false;
+		} else if (!groceryItems.equals(other.groceryItems))
+			return false;
 		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "GroceryList [id=" + id + "]";
+		return "GroceryList [id=" + id + ", name=" + name + ", groceryItems=" + groceryItems + "]";
 	}
 
 }

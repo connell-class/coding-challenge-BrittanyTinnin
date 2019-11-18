@@ -1,0 +1,7 @@
+<h2>All My Grocery Lists</h2>
+<ul>
+  <li *ngFor="let list of lists"
+  (click)="onSelect(list)">{{list.name}}</li>
+</ul>
+
+<app-a-grocery-list></app-a-grocery-list>
